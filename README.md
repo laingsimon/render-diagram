@@ -60,3 +60,7 @@ The above script will perform the following steps:
    Once the page has finished loading
 1. Look for elements with the `drawio-drawing` css-class
 1. For each element, render the drawing based on whether it has a `data-drawing-data` or `data-diagram-url` attribute
+
+## Known limitations
+1. \[All\]: [GitHub flavoured markdown](https://github.github.com/gfm/#disallowed-raw-html-extension-); script tags are modified in the content
+1. \[Relative content\]: Drawing content must be present on the same origin/host/address, or CORS must be enabled on the source of the content
