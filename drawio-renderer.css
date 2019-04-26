@@ -1,0 +1,51 @@
+.drawio-diagram-loading{
+	position: relative;
+}
+
+.drawio-diagram-loading:before{
+	content: "( )";
+	text-align: center;
+	display: block;
+	-webkit-animation:spin 2s linear infinite;
+    -moz-animation:spin 2s linear infinite;
+    animation:spin 2s linear infinite;
+	position: absolute;
+	font-size: 20px;
+	font-family: monospace;
+	line-height: 25px;
+}
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+.drawio-diagram-loading:after{
+	content: "Loading diagram...";
+	display: block;
+	margin-left: 35px;
+	line-height: 25px;
+}
+
+.drawio-diagram-error{
+	color: #000000;
+	border: 1px solid #ff0000;
+	border-radius: 3px;
+	padding: 5px;
+	background: #ff8888;
+	margin-bottom: 10px;
+}
+
+.drawio-diagram-error:before{
+	content: "!";
+	color: #ffffff;
+	background: #ff0000;
+	display: block;
+	float: left;
+	border-radius: 25px;
+	line-height: 50px;
+	font-weight: bold;
+	font-size: 42px;
+	width: 50px;
+	border: 0px solid transparent;
+	text-align: center;
+	margin-right: 10px;
+}
