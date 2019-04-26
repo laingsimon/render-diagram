@@ -51,3 +51,12 @@ This is an analogue of `<img src="url"/>`.
 <div class="drawio-diagram" data-diagram-url="https://laingsimon.github.io/render-drawing/Sample file.xml"></div>
 
 <script src="https://laingsimon.github.io/render-drawing/drawio-renderer.js"></script>
+
+
+## How it works
+The above script will perform the following steps:
+1. Include a link to the stylesheet for this tools: https://laingsimon.github.io/render-drawing/drawio-renderer.css
+1. Include a link to the draw.io render script: https://www.draw.io/js/viewer.min.js   
+   Once the page has finished loading
+1. Look for elements with the `drawio-drawing` css-class
+1. For each element, render the drawing based on whether it has a `data-drawing-data` or `data-diagram-url` attribute
