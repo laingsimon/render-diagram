@@ -6,10 +6,10 @@ There are tools available that do similar functionality to this, however they re
 This solution supports URL based rendering of the image as if it was an image, as an analogue to [gravizo](https://github.com/TLmaK0/gravizo) for DOT drawings.
 
 ### Supported environments
-- [x] Html
-- [x] GitHub pages
-- [ ] [GitHub flavoured markdown](https://github.github.com/gfm/#disallowed-raw-html-extension-); script tags are modified in the content
-- [x] Regular markdown
+- [x] - Html
+- [x] - GitHub pages
+- [ ] - [GitHub flavoured markdown](https://github.github.com/gfm/#disallowed-raw-html-extension-); script tags are modified in the content
+- [x] - Regular markdown
 
 ## Usage
 Include this script anywhere:
