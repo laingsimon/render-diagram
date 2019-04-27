@@ -26,6 +26,13 @@ It was desired that a tool should be able to:
 
 All but the last point has been covered, due to enforced limitations over the `<script>` tag within markdown content.
 
+#### Other tools
+There are some other tools available that permit similar behaviour, namely:
+- [Draw.io Embed-Diagrams](https://github.com/jgraph/drawio/wiki/Embed-Diagrams) - presents drawings as PNG files, can click-to-open them as a SVG
+   - Supports links, pages and layers but only via popup
+- https://github.com/jgraph/drawio-html5
+   - Requires the 'host application' to provide the data to the tool, rather than the image data coming from a URL
+
 ### Supported environments
 - [x] - Html
 - [x] - GitHub pages
