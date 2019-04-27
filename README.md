@@ -1,9 +1,30 @@
 # Drawing renderer
 
+### Background
 Render drawings from [draw.io](https://draw.io) from a URL or embedded into a webpage.
 
 There are tools available that do similar functionality to this, however they require the image to be embedded as an asset of the page. This is atypical when it comes to images, which are normally referenced by URL.
 This solution supports URL based rendering of the image as if it was an image, as an analogue to [gravizo](https://github.com/TLmaK0/gravizo) for DOT drawings.
+
+### Motivation
+Drawings can be easily embedded within a page by using tooling within Draw.io. This works without any issue, however requires the data about the drawing to be embedded in other content.
+Drawings drawn from a file (as produced by saving the drawing to a file) isn't natively supported.
+
+This means that you should save the drawing as a PNG with the data embedded. Once again this works fine, and achieves the expected behaviour as part of this tool - but with the following drawbacks
+1. It is less clear (although would become common practice) that the PNG contains drawing data
+   1. An XML - or other identified file - would convey this meaning more effectively
+1. PNGs are non-interactive therefore the following functionality from draw.io isn't supported
+   1. Links
+   1. Pages
+   1. Layers
+   
+It was desired that a tool should be able to:
+1. Render a drawing from a hosted file (so that becomes the only file requiring an edit if the drawing needs to be changed)
+1. Render a drawing in a familiar fashion - as similar to `img` tags as possible
+1. Render a drawing in SVG format to preserve Link, Page and Layer support
+1. Render a drawing from any webpage and (github) markdown content
+
+All but the last point has been covered, due to enforced limitations over the `<script>` tag within markdown content.
 
 ### Supported environments
 - [x] - Html
