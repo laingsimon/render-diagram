@@ -2,9 +2,9 @@ window.addEventListener("load", function(){
 	addStyle("https://laingsimon.github.io/render-drawing/drawio-renderer.css");
 	addScript("https://www.draw.io/js/viewer.min.js");
 	
-	let diagrams = document.querySelectorAll(".drawio-diagram");
-	
 	waitForDrawIo(0, function() {
+		let diagrams = document.querySelectorAll(".drawio-diagram");
+
 		diagrams.forEach(function(diagram){
 			processDiagram(diagram);
 		});
