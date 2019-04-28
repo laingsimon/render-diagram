@@ -109,15 +109,19 @@ function loadDataFromUrlThen(url, callback) {
 function addDiagram(diagramData, replaceElement){
 	let div = document.createElement("div");
 	div.setAttribute("class", "mxgraph");
-	div.setAttribute("data-mxgraph", JSON.stringify({
+	div.setAttribute("data-mxgraph", JSON.stringify(getMxGraphData(diagramData)));
+	replaceElement.parentElement.insertBefore(div, replaceElement);
+	replaceElement.parentElement.removeChild(replaceElement);
+	
+	GraphViewer.processElements();
+}
+
+function getMxGraphData(diagramData){
+	return {
 		highlight: "none",
 		target: "self",
 		lightbox: false,
 		nav: true,
 		xml: "<mxfile version=\"10.6.5\"><diagram>" + diagramData + "</diagram></mxfile>"
-	}));
-	replaceElement.parentElement.insertBefore(div, replaceElement);
-	replaceElement.parentElement.removeChild(replaceElement);
-	
-	GraphViewer.processElements();
+	};
 }
