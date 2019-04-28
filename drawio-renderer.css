@@ -32,20 +32,22 @@
 	padding: 5px;
 	background: #ff8888;
 	margin-bottom: 10px;
+	position: relative;
+	text-indent: 35px;
 }
 
 .drawio-diagram-error:before{
-	content: "!";
-	color: #ffffff;
-	background: #ff0000;
-	display: block;
-	float: left;
-	border-radius: 25px;
-	line-height: 50px;
-	font-weight: bold;
-	font-size: 42px;
-	width: 50px;
-	border: 0px solid transparent;
+	content: "(!)";
 	text-align: center;
-	margin-right: 10px;
+	display: block;
+	position: absolute;
+	font-size: 20px;
+	font-family: monospace;
+	line-height: 25px;
+	color: #ff0000;
+	text-indent: 0px;
+	
+	-moz-transform: rotate(45deg);
+	-webkit-transform: rotate(45deg);
+	transform:rotate(45deg);
 }
