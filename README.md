@@ -1,8 +1,7 @@
 # Drawing renderer
 
 ### Description
-Render drawings from [draw.io](https://draw.io) from a URL or embedded into a webpage.
-Maintain interactive support in the drawing in the rendered output, e.g. links, layers and pages.
+Render drawings from [draw.io](https://draw.io) from a URL or embedded into a webpage, whilst maintaining interactive support in the drawing, e.g. links, layers and pages.
 
 ### Usage
 Include this script anywhere:
@@ -62,8 +61,6 @@ The above script will perform the following steps:
 - [x] - Regular markdown
 
 ### Motivation
-This solution supports URL based rendering of the image as if it was an image, as an analogue to [gravizo](https://github.com/TLmaK0/gravizo) for DOT drawings.
-
 Drawings can be easily embedded within a page by using tooling within Draw.io. This works without any issue, however requires the data about the drawing to be embedded in other content.
 Drawings drawn from a file (as produced by saving the drawing to a file) isn't natively supported.
 
