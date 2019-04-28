@@ -44,31 +44,39 @@ function addScript(url){
 }
 
 function processDiagram(diagram){
-	let url = diagram.getAttribute("data-diagram-url");
-	let data = diagram.getAttribute("data-diagram-data");
-	
-	if (data) {
-		addDiagram(data, diagram);
-		return;
-	}
-	
-	if (url) {
-		diagram.innerHTML = "";
-		diagram.className += " drawio-diagram-loading";
-	
-		loadDataFromUrlThen(url, function(data, error) { 
-			if (error) {
-				diagram.className = diagram.className.replace(" drawio-diagram-loading", "") + " drawio-diagram-error";
-				diagram.innerHTML = "Error loading diagram<br />" + "Url: <a href=\"" + url + "\" target=\"_blank\">" + url + "</a><br />Status: " + error.status;
-				return;
-			}
+	try {
+		let url = diagram.getAttribute("data-diagram-url");
+		let data = diagram.getAttribute("data-diagram-data");
 		
+		if (data) {
 			addDiagram(data, diagram);
-		});
-		return;
-	}
-	
-	console.log("No means to process diagram, no data or url attribute");
+			return;
+		}
+		
+		if (url) {
+			diagram.innerHTML = "";
+			diagram.className += " drawio-diagram-loading";
+		
+			loadDataFromUrlThen(url, function(data, error) { 
+				if (error) {
+					showError(diagram, "Url: <a href=\"" + url + "\" target=\"_blank\">" + url + "</a><br />Status: " + error.status);
+					return;
+				}
+			
+				addDiagram(data, diagram);
+			});
+			return;
+		}
+		
+		showError(diagram, "No means to process diagram, no drawio-diagram-data or drawio-diagram-url attribute");
+	} catch (e) {
+		showError(diagram, e);
+	}	
+}
+
+function showError(diagram, errorHtml){
+	diagram.className = diagram.className.replace(" drawio-diagram-loading", "") + " drawio-diagram-error";
+	diagram.innerHTML = "Error loading diagram<br />" + errorHtml;	
 }
 
 function loadDataFromUrlThen(url, callback) {
