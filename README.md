@@ -38,6 +38,8 @@ This is an analogue of `<img src="url"/>`.
 See this working here: <a href="https://laingsimon.github.io/render-drawing/">https://laingsimon.github.io/render-drawing/</a>
 </div>
 
+See <a href="https://laingsimon.github.io/render-drawing/TestCases">other examples and test cases here</a>
+
 ### Other tools
 There are some other tools available that permit similar behaviour, namely:
 - [Draw.io Embed-Diagrams](https://github.com/jgraph/drawio/wiki/Embed-Diagrams) - presents drawings as PNG files, can click-to-open them as a SVG
