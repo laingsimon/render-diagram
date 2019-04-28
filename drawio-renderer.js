@@ -49,7 +49,7 @@ function processDiagram(diagram){
 		let data = diagram.getAttribute("data-diagram-data");
 		
 		if (data) {
-			addDiagram(data, diagram);
+			addDiagram(data, diagram, getUserOptions(diagram));
 			return;
 		}
 		
@@ -63,7 +63,7 @@ function processDiagram(diagram){
 					return;
 				}
 			
-				addDiagram(data, diagram);
+				addDiagram(data, diagram, getUserOptions(diagram));
 			});
 			return;
 		}
@@ -106,22 +106,35 @@ function loadDataFromUrlThen(url, callback) {
 	xmlhttp.send();
 }
 
-function addDiagram(diagramData, replaceElement){
+function addDiagram(diagramData, replaceElement, userOptions){
 	let div = document.createElement("div");
 	div.setAttribute("class", "mxgraph");
-	div.setAttribute("data-mxgraph", JSON.stringify(getMxGraphData(diagramData)));
+	div.setAttribute("data-mxgraph", JSON.stringify(getMxGraphData(diagramData, userOptions)));
 	replaceElement.parentElement.insertBefore(div, replaceElement);
 	replaceElement.parentElement.removeChild(replaceElement);
 	
 	GraphViewer.processElements();
 }
 
-function getMxGraphData(diagramData){
-	return {
+function getMxGraphData(diagramData, userOptions){
+  let options = Object.assign({}, getDefaultOptions());
+  if (userOptions) {
+    options = Object.assign(options, userOptions);
+  }
+  return Object.assign(options, {
+    xml: "<mxfile version=\"10.6.5\"><diagram>" + diagramData + "</diagram></mxfile>"
+  });
+}
+
+function getUserOptions(diagram) {
+  return null;
+}
+
+function getDefaultOptions(){
+    return {
 		highlight: "none",
 		target: "self",
 		lightbox: false,
-		nav: true,
-		xml: "<mxfile version=\"10.6.5\"><diagram>" + diagramData + "</diagram></mxfile>"
+		nav: true
 	};
 }
