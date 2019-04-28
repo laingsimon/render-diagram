@@ -3,7 +3,7 @@
 This page describes some test cases and the current working behaviour of the tool.
 This page is only expected to work via <a href="//laingsimon.github.io/render-drawing/TestCases">https://laingsimon.github.io/render-drawing/TestCases</a>
 
-<script src="https://github.com/laingsimon/render-drawing/drawio-renderer.js"></script>
+<script src="https://laingsimon.github.io/render-drawing/drawio-renderer.js"></script>
 
 ### Positive test cases
 1 - Valid url (expected to render correctly)   

@@ -7,7 +7,7 @@ Maintain interactive support in the drawing in the rendered output, e.g. links, 
 ### Usage
 Include this script anywhere:
 ```
-<script src="https://github.com/laingsimon/render-drawing/drawio-renderer.js"></script>
+<script src="https://laingsimon.github.io/render-drawing/drawio-renderer.js"></script>
 ```
 
 Then include drawings using any of the below approaches:
