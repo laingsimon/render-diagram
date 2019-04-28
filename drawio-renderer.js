@@ -127,7 +127,12 @@ function getMxGraphData(diagramData, userOptions){
 }
 
 function getUserOptions(diagram) {
-  return null;
+  let options = diagram.getAttribute("data-diagram-options");
+  if (!options) {
+    return null;
+  }
+
+  return JSON.parse(options);
 }
 
 function getDefaultOptions(){
