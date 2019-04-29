@@ -15,30 +15,35 @@ See this working here: <a href="https://laingsimon.github.io/render-drawing/">ht
 See this working here: <a href="https://laingsimon.github.io/render-drawing/">https://laingsimon.github.io/render-drawing/</a>
 </div>
 
+13 - Applied with options (expected toolbar to be visible and links to highlight in blue)
+<div class="drawio-diagram" data-diagram-url="https://laingsimon.github.io/render-drawing/Sample file.xml" data-diagram-options='{"toolbar": "pages layers zoom", "highlight": "blue"}'>
+See this working here: <a href="https://laingsimon.github.io/render-drawing/">https://laingsimon.github.io/render-drawing/</a>
+</div>
+
 ### Negative test cases
-3 - Invalid URL (expected to render error message)   
+4 - Invalid URL (expected to render error message)   
 <div class="drawio-diagram" data-diagram-url="non-url"></div>
 
-4 - Missing content - 404 (expected to render error message)   
+5 - Missing content - 404 (expected to render error message)   
 <div class="drawio-diagram" data-diagram-url="https://laingsimon.github.io/render-drawing/404"></div>
 
-5 - Invalid host name (expected to render error message)   
+6 - Invalid host name (expected to render error message)   
 <div class="drawio-diagram" data-diagram-url="https://missing-host-name"></div>
 
-6 - Invalid content from URL (expected to render error message, if content cannot be processed)    
+7 - Invalid content from URL (expected to render error message, if content cannot be processed)    
 <div class="drawio-diagram" data-diagram-url="https://laingsimon.github.io/render-drawing/README.md"></div>
 
-7 - Empty URL (expected to render usage message)    
+8 - Empty URL (expected to render usage message)    
 <div class="drawio-diagram" data-diagram-url=""></div>
 
-8 - Invalid embedded data (expected to render error message, if content cannot be processed)    
+9 - Invalid embedded data (expected to render error message, if content cannot be processed)    
 <div class="drawio-diagram" data-diagram-data="invalid-drawing-data"></div>
 
-9 - Empty data (expected to render usage message)   
+10 - Empty data (expected to render usage message)   
 <div class="drawio-diagram" data-diagram-data=""></div>
 
-10 - No data attribute (expected to render usage message)    
+11 - No data attribute (expected to render usage message)    
 <div class="drawio-diagram"></div>
 
-11 - Applied to invalid element (e.g. &lt;br /&gt;) (expected to no modify element)   
-<br class="drawio-diagram" data-diagram-url="https://laingsimon.github.io/render-drawing/Sample file.xml" />
+12 - Applied to invalid element (e.g. &lt;hr /&gt;) (expected to not modify element)   
+<hr class="drawio-diagram" data-diagram-url="https://laingsimon.github.io/render-drawing/Sample file.xml" />
