@@ -37,8 +37,6 @@ This is an analogue of `<img src="url"/>`.
 See this working here: <a href="https://laingsimon.github.io/render-drawing/">https://laingsimon.github.io/render-drawing/</a>
 </div>
 
-See <a href="https://laingsimon.github.io/render-drawing/TestCases">other examples and test cases here</a>
-
 #### With options
 
 ```
@@ -70,6 +68,8 @@ If this option is missing or empty then the toolbar will be hidden.
 <div class="drawio-diagram" data-diagram-url="https://laingsimon.github.io/render-drawing/Sample file.xml" data-diagram-options='{"toolbar": "pages layers zoom", "highlight": "blue"}'>
 See this working here: <a href="https://laingsimon.github.io/render-drawing/">https://laingsimon.github.io/render-drawing/</a>
 </div>
+
+See <a href="https://laingsimon.github.io/render-drawing/TestCases">other examples and test cases here</a>
 
 ### Other tools
 There are some other tools available that permit similar behaviour, namely:
