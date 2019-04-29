@@ -39,6 +39,38 @@ See this working here: <a href="https://laingsimon.github.io/render-drawing/">ht
 
 See <a href="https://laingsimon.github.io/render-drawing/TestCases">other examples and test cases here</a>
 
+#### With options
+
+```
+<div class="drawio-diagram" data-diagram-options='{options}'></div>
+```
+
+NOTE: Make sure the options use double quotes to encapsulate property names, e.g. "toolbar". One of the easiest ways to achieve this is to use single quotes to encapsulate the json blob, as shown above.
+
+##### Options
+Any option that is valid for the draw.io renderer is valid here, some notable examples are:
+
+| option | data type | purpose | default | example |
+| ---- | ---- | ---- | ---- | ---- |
+| `hightlight` | colour-string | The colour to highlight links with | `none` | `blue` |
+| `target` | string | The window name to open links in | - | `_blank` |
+| `lightbox` | boolean | Whether to enable the lightbox view of the diagram | `false` | `true` |
+| `nav` | boolean | Whether to permit navigation from links | `true` | `true` |
+| `toolbar` | space-delimited-string | Which buttons to show in the toolbar, see below | - | `zoom layers` |
+
+##### Toolbar options
+Some of the known toolbar options are:
+1. `zoom` - Whether to show the zoom buttons
+1. `layers` - Whether to show the layers button
+1. `pages` - Whether to show the pages button
+
+If this option is missing or empty then the toolbar will be hidden.
+
+##### Working example
+<div class="drawio-diagram" data-diagram-url="https://laingsimon.github.io/render-drawing/Sample file.xml" data-diagram-options='{"toolbar": "pages layers zoom", "highlight": "blue"}'>
+See this working here: <a href="https://laingsimon.github.io/render-drawing/">https://laingsimon.github.io/render-drawing/</a>
+</div>
+
 ### Other tools
 There are some other tools available that permit similar behaviour, namely:
 - [Draw.io Embed-Diagrams](https://github.com/jgraph/drawio/wiki/Embed-Diagrams) - presents drawings as PNG files, can click-to-open them as a SVG
