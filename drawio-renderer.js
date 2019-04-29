@@ -122,7 +122,18 @@ function addDiagram(diagramData, replaceElement, userOptions){
 	replaceElement.parentElement.insertBefore(div, replaceElement);
 	replaceElement.parentElement.removeChild(replaceElement);
 	
-	GraphViewer.processElements();
+	window.setTimeout(function(){
+		let svgElements = div.getElementsByTagName("svg");
+		if (svgElements.length === 0) {
+			let errorDiv = document.createElement("div");
+			div.parentElement.insertBefore(errorDiv, div);
+			div.parentElement.removeChild(div);
+			
+			showError(errorDiv, div.innerText);
+		}
+	}, 500);
+
+	GraphViewer.processElements();	
 }
 
 function getMxGraphData(diagramData, userOptions){
