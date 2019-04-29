@@ -51,8 +51,9 @@ The above script will perform the following steps:
 1. Include a link to the stylesheet for this tools: https://laingsimon.github.io/render-drawing/drawio-renderer.css
 1. Include a link to the draw.io render script: https://www.draw.io/js/viewer.min.js   
    Once the page has finished loading
-1. Look for elements with the `drawio-drawing` css-class
-1. For each element, render the drawing based on whether it has a `data-drawing-data` or `data-diagram-url` attribute
+1. Look for elements with the `drawio-diagram` css-class
+1. For each element, render the drawing based on whether it has a `data-diagram-data` or `data-diagram-url` attribute
+   1. Pass any settings in `drawio-diagram-options` (json blob) to draw.io
 
 ### Supported environments
 - [x] - Html
