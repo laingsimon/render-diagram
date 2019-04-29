@@ -1,28 +1,28 @@
 # Diagram renderer
 
 ### Description
-Render drawings from [draw.io](https://draw.io) from a URL or embedded into a webpage, whilst maintaining interactive support in the diagram, e.g. links, layers and pages.
+Render diagrams from [draw.io](https://draw.io) from a URL or embedded into a webpage, whilst maintaining interactive support in the diagram, e.g. links, layers and pages.
 
 ### Usage
 Include this script anywhere:
 ```
-<script src="https://laingsimon.github.io/render-drawing/drawio-renderer.js"></script>
+<script src="https://laingsimon.github.io/render-diagram/drawio-renderer.js"></script>
 ```
 
 Then include diagrams using any of the below approaches:
 
 #### Embedded content
 ```
-<div class="drawio-diagram" data-diagram-data="drawing-content"></div>
+<div class="drawio-diagram" data-diagram-data="diagram-content"></div>
 ```
 
 This is an analogue of `<img src="data:image/png;base64,xxxx"/>` and is equivalent to embedding the diagram based on the embed option in draw.io.
 
 ##### Working example
 <div class="drawio-diagram" data-diagram-data="zVbJbtswEP0aHW1IpLcevefQoktaFO2loCRaYk2RAkXFdr6+MyJly1CXBHCK5OAMH4ccct7jjAK6LI5bw8r8nU65DEiYHgO6CgiZjUL4ReDkgNFs5IDMiNRB0QW4F4/cg35dVouUV1eOVmtpRXkNJlopntgrjBmjD9duOy2vo5Ys4z3gPmGyj34Vqc09Gk3eXCbuuMhyH3pGpm4iZsk+M7pWPl5A6K75c9MFa/fyF61ylupDB6LrgC6N1tZZxXHJJaa2TZtbt/nD7Pnchiv7lAX7j/X31ZbQH9Fprr9NZw93hA6i8Yi4jR6YrH1KVoYdhMoA/MRVyg03/gb21GbN8iMEXeS2kABEYBpeiUcWNw4hjEstlG24GS+C8QoQVltdOf5xAZMiU2BLvsOtHrixAmiZe9jqEtCqZAkc5TMOVoMRIDutrFcRwTj9NPjM4Ib82IF8WrZcF9yaE7i0s6HPgZdwNPUSPnQF4WnMO1poqWVeg9l56wsPYHgqnkcL7dHiyMBj6hr+TViBGVJxVTZpCP8/lDqhVAFZojxEUUpMK4MnARdUaOKTZIWQgpnGrHKh1SuS0wvIh4S0Jx86vo18vlTcvI9/YiEkoWQxl24pMjEUGjiSePsY9ZHZ8/2kUHvnmFuLhXWOAcjmvIw8QZGjTha8iF8FhVgRllpq0xyETtfzyfpWlWEa/ZPaGzELww65z6sV416t6L0w6D4lmqJo+mGXp9/nuUXfosg+AE0WHy5dxdpaXYBDo77FuQl2GPBtkC6aYPOqdH0bOWHtYCeOPG1dYHytyyRVZCig5e8E1rxhAhFBrcxCPdkgDiVnE7NKJINaDLjkBXBcDaIJwFE0xR20MRBpEJHZsIRe1m8cLyib9pvoL/1kPOmrpsWep5rLF0Qz1/lKo+tf">
-See this working here: <a href="https://laingsimon.github.io/render-drawing/">https://laingsimon.github.io/render-drawing/</a>
+See this working here: <a href="https://laingsimon.github.io/render-diagram/">https://laingsimon.github.io/render-diagram/</a>
 </div>
-<script src="https://laingsimon.github.io/render-drawing/drawio-renderer.js"></script>
+<script src="https://laingsimon.github.io/render-diagram/drawio-renderer.js"></script>
 
 #### Relative content
 
@@ -33,8 +33,8 @@ See this working here: <a href="https://laingsimon.github.io/render-drawing/">ht
 This is an analogue of `<img src="url"/>`.
 
 ##### Working example
-<div class="drawio-diagram" data-diagram-url="https://laingsimon.github.io/render-drawing/Sample file.xml">
-See this working here: <a href="https://laingsimon.github.io/render-drawing/">https://laingsimon.github.io/render-drawing/</a>
+<div class="drawio-diagram" data-diagram-url="https://laingsimon.github.io/render-diagram/Sample file.xml">
+See this working here: <a href="https://laingsimon.github.io/render-diagram/">https://laingsimon.github.io/render-diagram/</a>
 </div>
 
 #### With options
@@ -65,11 +65,11 @@ Some of the known toolbar options are:
 If this option is missing or empty then the toolbar will be hidden.
 
 ##### Working example
-<div class="drawio-diagram" data-diagram-url="https://laingsimon.github.io/render-drawing/Sample file.xml" data-diagram-options='{"toolbar": "pages layers zoom", "highlight": "blue"}'>
-See this working here: <a href="https://laingsimon.github.io/render-drawing/">https://laingsimon.github.io/render-drawing/</a>
+<div class="drawio-diagram" data-diagram-url="https://laingsimon.github.io/render-diagram/Sample file.xml" data-diagram-options='{"toolbar": "pages layers zoom", "highlight": "blue"}'>
+See this working here: <a href="https://laingsimon.github.io/render-diagram/">https://laingsimon.github.io/render-diagram/</a>
 </div>
 
-See <a href="https://laingsimon.github.io/render-drawing/TestCases">other examples and test cases here</a>
+See <a href="https://laingsimon.github.io/render-diagram/TestCases">other examples and test cases here</a>
 
 ### Other tools
 There are some other tools available that permit similar behaviour, namely:
@@ -80,7 +80,7 @@ There are some other tools available that permit similar behaviour, namely:
 
 ### How it works
 The above script will perform the following steps:
-1. Include a link to the stylesheet for this tools: https://laingsimon.github.io/render-drawing/drawio-renderer.css
+1. Include a link to the stylesheet for this tools: https://laingsimon.github.io/render-diagram/drawio-renderer.css
 1. Include a link to the draw.io render script: https://www.draw.io/js/viewer.min.js   
    Once the page has finished loading
 1. Look for elements with the `drawio-diagram` css-class

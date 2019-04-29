@@ -1,7 +1,7 @@
 window.addEventListener("load", function(){
 	let permittedTagNames = [ "DIV", "SPAN", "SECTION", "BODY" ];
 	
-	addStyle("https://laingsimon.github.io/render-drawing/drawio-renderer.css");
+	addStyle("https://laingsimon.github.io/render-diagram/drawio-renderer.css");
 	addScript("https://www.draw.io/js/viewer.min.js");
 	
 	waitForDrawIo(function(timeout) {
