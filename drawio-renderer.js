@@ -62,6 +62,11 @@ function processDiagram(diagram){
 					showError(diagram, "Url: <a href=\"" + url + "\" target=\"_blank\">" + url + "</a><br />Status: " + error.status);
 					return;
 				}
+				
+				let dataMatch = data != null ? data.match(/\<diagram .+?\>(.+)\<\/diagram\>/) : null;
+				if (dataMatch != null && dataMatch.length >= 2) {
+					data = dataMatch[1];	
+				}
 			
 				addDiagram(data, diagram, getUserOptions(diagram));
 			});
