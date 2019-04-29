@@ -4,7 +4,7 @@ window.addEventListener("load", function(){
 	addStyle("https://laingsimon.github.io/render-drawing/drawio-renderer.css");
 	addScript("https://www.draw.io/js/viewer.min.js");
 	
-	waitForDrawIo(0, function() {
+	waitForDrawIo(function(timeout) {
 		let diagrams = document.querySelectorAll(".drawio-diagram");
 
 		diagrams.forEach(function(diagram){
@@ -12,25 +12,35 @@ window.addEventListener("load", function(){
 				return; //not included in a permitted tag
 			}
 			
+			if (timeout) {
+				showError(diagram, "Unable to load draw.io renderer");
+				return;
+			}
+
 			processDiagram(diagram);
 		});
 	})
 })
 
-function waitForDrawIo(attempt, callback) {
+function waitForDrawIo(callback, attempt) {
+	if (!attempt) {
+		attempt = 0;
+	}
+	
 	if (typeof GraphViewer === "undefined") {
 		if (attempt >= 5) {
+			callback(true);
 			return;
 		}
 		
 		window.setTimeout(function() {
-			waitForDrawIo(attempt + 1, callback);
+			waitForDrawIo(callback, attempt + 1);
 		}, 500);
 
 		return;
 	}
 	
-	callback();
+	callback(false);
 }
 
 function addStyle(url){
