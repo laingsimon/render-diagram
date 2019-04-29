@@ -87,6 +87,12 @@ The above script will perform the following steps:
 1. For each element, render the diagram based on whether it has a `data-diagram-data` or `data-diagram-url` attribute
    1. Pass any settings in `drawio-diagram-options` (json blob) to draw.io
 
+Diagrams can only be embedded in one of the following element types:
+1. `div`
+2. `span`
+3. `section`
+4. `body`
+   
 ### Supported environments
 - [x] - Html
 - [x] - GitHub pages
