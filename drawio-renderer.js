@@ -58,17 +58,21 @@ function processDiagram(diagram){
 			diagram.className += " drawio-diagram-loading";
 		
 			loadDataFromUrlThen(url, function(data, error) { 
-				if (error) {
-					showError(diagram, "Url: <a href=\"" + url + "\" target=\"_blank\">" + url + "</a><br />Status: " + error.status);
-					return;
-				}
+				try {
+					if (error) {
+						showError(diagram, "Url: <a href=\"" + url + "\" target=\"_blank\">" + url + "</a><br />Status: " + error.status);
+						return;
+					}
+					
+					let dataMatch = data != null ? data.match(/\<diagram .+?\>(.+)\<\/diagram\>/) : null;
+					if (dataMatch != null && dataMatch.length >= 2) {
+						data = dataMatch[1];	
+					}
 				
-				let dataMatch = data != null ? data.match(/\<diagram .+?\>(.+)\<\/diagram\>/) : null;
-				if (dataMatch != null && dataMatch.length >= 2) {
-					data = dataMatch[1];	
+					addDiagram(data, diagram, getUserOptions(diagram));
+				} catch (e) {
+					showError(diagram, e);
 				}
-			
-				addDiagram(data, diagram, getUserOptions(diagram));
 			});
 			return;
 		}
