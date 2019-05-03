@@ -77,6 +77,16 @@ There are some other tools available that permit similar behaviour, namely:
    - Supports links, pages and layers but only via popup
 - https://github.com/jgraph/drawio-html5
    - Requires the 'host application' to provide the data to the tool, rather than the image data coming from a URL
+   
+### Editing diagrams
+The following link format can be used to open diagrams in draw.io for editing. The url must be accessible publicly so draw.io can access the drawing.
+
+```
+https://www.draw.io/#Uhttps://laingsimon.github.io/render-diagram/Sample%20file.xml
+```
+
+#### Example
+[Edit sample file](https://www.draw.io/#Uhttps://laingsimon.github.io/render-diagram/Sample%20file.xml)
 
 ### How it works
 The above script will perform the following steps:
