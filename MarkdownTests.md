@@ -43,4 +43,10 @@ See [https://desk.draw.io/support/solutions/articles/16000042546-what-url-parame
 #### 4: Draw.io recommendation
 See [https://github.com/jgraph/drawio-github](https://github.com/jgraph/drawio-github)
 
-##### Outcome: Unsuccessful - Requires the image representation of the diagram to be hosted somewhere
+##### Outcome: Unsuccessful - Requires the image representation of the diagram to be hosted somewhere.
+
+#### 5: Use jgraph batch tool for conversion
+See: [https://github.com/languitar/drawio-batch](https://github.com/languitar/drawio-batch).
+
+##### Outcome: Unsuccessful - Renderer requires hosting somewhere to run the rendering batch utility. Also, facility would be degraded to a static only - image - representation.
+
