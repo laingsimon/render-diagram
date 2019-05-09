@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class RenderController {
     @GetMapping("/")
     public String index(){
-        return "Hello world";
+        return "index";
     }
 }
