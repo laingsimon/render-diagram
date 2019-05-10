@@ -11,13 +11,11 @@ import org.w3c.dom.Document;
 
 @Controller
 public class RenderController {
-    private final DiagramDecoder decoder;
     private final DiagramRenderer renderer;
     private final DiagramRepository repository;
     private final FormatRepository formats;
 
-    public RenderController(DiagramDecoder decoder, DiagramRenderer renderer, DiagramRepository diagrams, FormatRepository formats) {
-        this.decoder = decoder;
+    public RenderController(DiagramRenderer renderer, DiagramRepository diagrams, FormatRepository formats) {
         this.renderer = renderer;
         this.repository = diagrams;
         this.formats = formats;
@@ -29,14 +27,13 @@ public class RenderController {
 
         try {
             String xmlString = repository.fromUrl(url);
-            Document inflatedXml = decoder.getDiagramData(xmlString);
             RenderFormat renderFormat = formats.getFormat(format);
 
             if (renderFormat == null){
                 return new ResponseEntity<>("Invalid render format", HttpStatus.BAD_REQUEST);
             }
 
-            Object content = renderer.render(inflatedXml, renderFormat);
+            Object content = renderer.render(xmlString, renderFormat);
 
             HttpHeaders headers = new HttpHeaders();
             headers.setContentType(renderFormat.getMediaType());
