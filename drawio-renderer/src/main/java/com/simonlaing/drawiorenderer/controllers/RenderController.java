@@ -1,8 +1,7 @@
 package com.simonlaing.drawiorenderer.controllers;
 
-import com.simonlaing.drawiorenderer.models.DiagramDecoder;
-import com.simonlaing.drawiorenderer.models.DiagramRenderer;
-import com.simonlaing.drawiorenderer.models.DiagramRepository;
+import com.simonlaing.drawiorenderer.models.*;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -15,23 +14,33 @@ public class RenderController {
     private final DiagramDecoder decoder;
     private final DiagramRenderer renderer;
     private final DiagramRepository repository;
+    private final FormatRepository formats;
 
-    public RenderController(DiagramDecoder decoder, DiagramRenderer renderer, DiagramRepository repository) {
+    public RenderController(DiagramDecoder decoder, DiagramRenderer renderer, DiagramRepository diagrams, FormatRepository formats) {
         this.decoder = decoder;
         this.renderer = renderer;
-        this.repository = repository;
+        this.repository = diagrams;
+        this.formats = formats;
     }
 
     @GetMapping("/")
-    public ResponseEntity<String> index(@RequestParam String url){
+    public ResponseEntity<Object> index(@RequestParam String url, @RequestParam(defaultValue = "svg", required = false) String format){
         //See: https://github.com/jgraph/mxgraph/blob/master/java/examples/com/mxgraph/examples/Xml2Svg.java
 
         try {
             String xmlString = repository.fromUrl(url);
             Document inflatedXml = decoder.getDiagramData(xmlString);
-            String svg = renderer.renderAsSvg(inflatedXml);
+            RenderFormat renderFormat = formats.getFormat(format);
 
-            return new ResponseEntity<>(svg, HttpStatus.OK);
+            if (renderFormat == null){
+                return new ResponseEntity<>("Invalid render format", HttpStatus.BAD_REQUEST);
+            }
+
+            Object content = renderer.render(inflatedXml, renderFormat);
+
+            HttpHeaders headers = new HttpHeaders();
+            headers.setContentType(renderFormat.getMediaType());
+            return new ResponseEntity<>(content, headers, HttpStatus.OK);
         } catch (Exception e) {
             e.printStackTrace();
 
