@@ -17,13 +17,6 @@ public class DiagramRenderer {
     }
 
     public Object render(String xmlString, RenderFormat format) throws DataFormatException, IOException {
-        Document xml = decoder.getDiagramData(xmlString);
-
-        mxCodec codec = new mxCodec(xml);
-        mxGraph graph = new mxGraph();
-
-        codec.decode(xml.getDocumentElement(), graph.getModel());
-
-        return format.render(graph);
+        return format.render(xmlString);
     }
 }

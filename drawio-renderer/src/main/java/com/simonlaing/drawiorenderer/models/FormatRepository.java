@@ -10,8 +10,8 @@ public class FormatRepository {
     private final HashMap<String, RenderFormat> formats = new HashMap<>();
 
     public FormatRepository() {
-        formats.put("svg", new RenderFormat(MediaType.valueOf("image/svg+xml"), new JavaSvgRenderer()));
-        formats.put("png", new RenderFormat(MediaType.IMAGE_PNG, new JavaPngRenderer()));
+        formats.put("svg", new RenderFormat(MediaType.valueOf("image/svg+xml"), new JavaSvgRenderer(new DiagramDecoder())));
+        formats.put("png", new RenderFormat(MediaType.IMAGE_PNG, new ExportPngRenderer()));
     }
 
     public RenderFormat getFormat(String formatKey){

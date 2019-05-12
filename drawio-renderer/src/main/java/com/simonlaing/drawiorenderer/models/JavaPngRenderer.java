@@ -9,8 +9,13 @@ import java.awt.image.RenderedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
-public class JavaPngRenderer implements Renderer {
-    public Object render(mxGraph graph) {
+public class JavaPngRenderer extends BaseGraphRenderer {
+    JavaPngRenderer(DiagramDecoder decoder) {
+        super(decoder);
+    }
+
+    @Override
+    protected Object render(mxGraph graph) {
         RenderedImage image = mxCellRenderer.createBufferedImage(graph, null, 1, Color.WHITE, false, null);
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         try {

@@ -7,8 +7,13 @@ import com.mxgraph.util.mxDomUtils;
 import com.mxgraph.util.mxXmlUtils;
 import com.mxgraph.view.mxGraph;
 
-public class JavaSvgRenderer implements Renderer {
-    public Object render(mxGraph graph) {
+public class JavaSvgRenderer extends BaseGraphRenderer {
+    JavaSvgRenderer(DiagramDecoder decoder) {
+        super(decoder);
+    }
+
+    @Override
+    protected Object render(mxGraph graph) {
         mxSvgCanvas canvas = (mxSvgCanvas) mxCellRenderer.drawCells(graph,
                 null, 1, null, new mxCellRenderer.CanvasFactory()
                 {
