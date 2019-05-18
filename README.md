@@ -71,6 +71,16 @@ See this working here: <a href="https://laingsimon.github.io/render-diagram/">ht
 
 See <a href="https://laingsimon.github.io/render-diagram/TestCases">other examples and test cases here</a>
 
+### Other facilities
+#### Relay option
+Open draw.io with drawing content by providing a URL. This is possible with draw.io, but only where the URL is publicly accessible.
+This facility loads the content in the browser (rather than server side) therefore can be hosted privately by the user/organisation.
+
+Example: [https://laingsimon.github.io/render-diagram/relay?chrome=0#https://raw.githubusercontent.com/laingsimon/draw-ship/master/Sample%20file.xml]
+
+Security: The diagram data is accessed in the same manner as if the diagram was downloaded by the user from the given url, the diagram data is not sent/retrieved by any other service.
+  
+
 ### Other tools
 There are some other tools available that permit similar behaviour, namely:
 - [Draw.io Embed-Diagrams](https://github.com/jgraph/drawio/wiki/Embed-Diagrams) - presents diagrams as PNG files, can click-to-open them as a SVG

@@ -1,0 +1,96 @@
+<html>
+	<head>
+		<script>
+			function loadDataFromUrlThen(url, callback) {
+				let xmlhttp = null;
+
+				if (window.XMLHttpRequest)
+				{// code for IE7+, Firefox, Chrome, Opera, Safari
+					xmlhttp=new XMLHttpRequest();
+				}
+				else
+				{// code for IE6, IE5
+					xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+				}
+				xmlhttp.onreadystatechange=function()
+				{
+					if (xmlhttp.readyState==4)
+					{
+						if (xmlhttp.status==200) {
+							callback(xmlhttp.responseText, null);
+						} else {
+							callback(null, { status: xmlhttp.status, text: xmlhttp.responseText });
+						}
+						return;
+					}
+				}
+				xmlhttp.open("GET", url, true);
+				xmlhttp.send();
+			}
+			
+			window.addEventListener("load", function() {
+				let hash = document.location.hash;
+				if (!hash) {
+					document.location = "https://draw.io"
+					return;
+				}
+				
+				loadDataFromUrlThen(hash.substring(1), function(data, error) {
+					if (error) {
+						document.body.className = "error";
+						document.getElementsByTagName("span")[0].innerHTML = "Error relaying to draw.io; status: " + error.status;
+						return;
+					}
+				
+					let query = document.location.search;
+					document.location = "https://draw.io/" + query + "#R" + data;
+				});
+			});
+		</script>
+		<style>
+			body {
+				padding: 2px;
+				font-family: "Tahoma";
+				position: relative;
+			}
+			
+			.error {
+				color: #ff0000;
+			}
+			
+			body span {
+				padding-left: 40px;
+				line-height: 25px;
+			}
+			
+			body:before{
+				content: "( )";
+				text-align: center;
+				display: block;
+				-webkit-animation:spin 2s linear infinite;
+				-moz-animation:spin 2s linear infinite;
+				animation:spin 2s linear infinite;
+				position: absolute;
+				font-size: 20px;
+				font-family: monospace;
+				line-height: 25px;
+			}
+			@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+			@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+			@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+			
+			body.error:before{
+				-webkit-animation:initial;
+				-moz-animation:initial;
+				animation:initial;
+				
+				-moz-transform: rotate(45deg);
+				-webkit-transform: rotate(45deg);
+				transform: rotate(45deg);
+			}
+		</style>
+	</head>
+	<body>
+		<span>Loading...</span>
+	</body>
+</html>
