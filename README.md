@@ -76,7 +76,7 @@ See <a href="https://laingsimon.github.io/render-diagram/TestCases">other exampl
 Open draw.io with drawing content by providing a URL. This is possible with draw.io, but only where the URL is publicly accessible.
 This facility loads the content in the browser (rather than server side) therefore can be hosted privately by the user/organisation.
 
-Example: [https://laingsimon.github.io/render-diagram/relay?chrome=0#https://raw.githubusercontent.com/laingsimon/draw-ship/master/Sample%20file.xml]
+Example: [https://laingsimon.github.io/render-diagram/relay?chrome=0#https://raw.githubusercontent.com/laingsimon/draw-ship/master/Sample%20file.xml](https://laingsimon.github.io/render-diagram/relay?chrome=0#https://raw.githubusercontent.com/laingsimon/draw-ship/master/Sample%20file.xml)
 
 Security: The diagram data is accessed in the same manner as if the diagram was downloaded by the user from the given url, the diagram data is not sent/retrieved by any other service.
   
