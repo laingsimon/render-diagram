@@ -50,7 +50,7 @@ Any option that is valid for the draw.io renderer is valid here, some notable ex
 
 | option | data type | purpose | default | example |
 | ---- | ---- | ---- | ---- | ---- |
-| `hightlight` | colour-string | The colour to highlight links with | `none` | `blue` |
+| `highlight` | colour-string | The colour to highlight links with | `none` | `blue` |
 | `target` | string | The window name to open links in | - | `_blank` |
 | `lightbox` | boolean | Whether to enable the lightbox view of the diagram | `false` | `true` |
 | `nav` | boolean | Whether to permit navigation from links | `true` | `true` |
